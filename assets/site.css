@@ -253,13 +253,37 @@ a:hover { color: var(--accent); text-underline-offset: 4px; }
   box-shadow: 0 3px 14px rgba(43, 217, 238, 0.35);
 }
 .stage-week { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
-.stage h3 { margin-bottom: 10px; }
-.stage-list { list-style: none; margin: 0 0 14px; padding: 0; }
-.stage-list li {
-  font-size: 0.9375rem; color: var(--muted);
-  padding-left: 16px; position: relative; margin-bottom: 6px;
+.stage h3 { margin-bottom: 8px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 6px; }
+.chip {
+  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.04em;
+  color: var(--muted);
+  border: 1px solid var(--rule); border-radius: 4px;
+  padding: 2px 8px;
+  background: rgba(11, 17, 26, 0.5);
 }
-.stage-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+.stage-list { list-style: none; margin: 0 0 14px; padding: 0; }
+.srow {
+  display: flex; gap: 10px;
+  padding: 9px 0;
+  border-top: 1px solid rgba(34, 48, 66, 0.7);
+}
+.srow-dot {
+  flex: none; width: 7px; height: 7px; border-radius: 50%;
+  margin-top: 7px;
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(43, 217, 238, 0.5);
+}
+.srow strong { display: block; font-size: 0.9375rem; font-weight: 600; line-height: 1.4; }
+.srow small {
+  display: block;
+  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.03em;
+  color: var(--muted); margin-top: 2px;
+}
+.head-note {
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--muted);
+}
 .stage-out {
   margin: auto 0 0;
   font-family: var(--mono); font-size: 0.75rem; line-height: 1.55; letter-spacing: 0.03em;

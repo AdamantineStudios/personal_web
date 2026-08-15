@@ -19,6 +19,62 @@
   var W, H, nodes, edges, pulses, raf, last, clock = 0;
   var pointer = { x: -1e4, y: -1e4 };
 
+  /* wireframe globe — slow-turning point sphere behind the mesh */
+  var SP = 110, TILT = -0.35;
+  var spts, sedges, scx, scy, srad, srot = Math.random() * TAU;
+
+  function buildSphere() {
+    spts = [];
+    var golden = Math.PI * (3 - Math.sqrt(5));
+    for (var i = 0; i < SP; i++) {
+      var y = 1 - (i / (SP - 1)) * 2;
+      var r = Math.sqrt(Math.max(0, 1 - y * y));
+      var th = golden * i;
+      spts.push({ x: Math.cos(th) * r, y: y, z: Math.sin(th) * r });
+    }
+    var seen = {};
+    sedges = [];
+    spts.forEach(function (p, pi) {
+      var by = spts.map(function (q, qi) {
+        var dx = q.x - p.x, dy = q.y - p.y, dz = q.z - p.z;
+        return { i: qi, d: dx * dx + dy * dy + dz * dz };
+      }).sort(function (a, b) { return a.d - b.d; });
+      for (var k = 1; k <= 3 && k < by.length; k++) {
+        var qi = by[k].i;
+        var key = pi < qi ? pi + "-" + qi : qi + "-" + pi;
+        if (!seen[key]) { seen[key] = 1; sedges.push([pi, qi]); }
+      }
+    });
+  }
+
+  function drawSphere() {
+    var cr = Math.cos(srot), sr = Math.sin(srot);
+    var ct = Math.cos(TILT), st = Math.sin(TILT);
+    var proj = spts.map(function (p) {
+      var x = p.x * cr + p.z * sr;
+      var z = -p.x * sr + p.z * cr;
+      var y = p.y * ct - z * st;
+      z = p.y * st + z * ct;
+      return { x: scx + x * srad, y: scy + y * srad, z: z };
+    });
+    ctx.lineWidth = 1;
+    sedges.forEach(function (e) {
+      var a = proj[e[0]], b = proj[e[1]];
+      var depth = (a.z + b.z) / 4 + 0.5;
+      ctx.strokeStyle = "rgba(" + LINE + "," + (0.035 + depth * 0.09).toFixed(3) + ")";
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.stroke();
+    });
+    proj.forEach(function (p, i) {
+      var depth = p.z / 2 + 0.5;
+      var col = i % 9 === 0 ? CYAN : (i % 13 === 0 ? GREEN : LINE);
+      ctx.fillStyle = "rgba(" + col + "," + (0.15 + depth * 0.4).toFixed(3) + ")";
+      dot(p.x, p.y, 1.2 + depth * 1.4);
+    });
+  }
+
   function build() {
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = canvas.clientWidth; H = canvas.clientHeight;
@@ -69,6 +125,10 @@
       }
     });
     pulses = [];
+
+    scx = W * 0.64; scy = H * 0.52;
+    srad = Math.min(W, H) * 0.44;
+    if (!spts) buildSphere();
   }
 
   function spawn(fromNode, avoidEdge) {
@@ -87,6 +147,7 @@
 
   function step(dt) {
     clock += dt;
+    srot += dt * 0.05;
     nodes.forEach(function (n) {
       n.x = n.bx + Math.sin(clock * n.spd + n.ph) * n.amp;
       n.y = n.by + Math.cos(clock * n.spd * 0.9 + n.ph2) * n.amp;
@@ -116,6 +177,7 @@
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
+    if (!light) drawSphere();
     ctx.lineWidth = 1;
 
     ctx.strokeStyle = "rgba(" + LINE + ",0.16)";
