@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-cs="AI ve firmě za 30 dní — Tomáš Jeroušek" data-en="AI in your company in 30 days — Tomáš Jeroušek">AI ve firmě za 30 dní — Tomáš Jeroušek</title>
+  <meta name="description" data-cs="Fixní čtyřtýdenní sprint: audit používání AI, nasazení nástrojů a přístupová pravidla, směrnice a školení podle AI Actu, měřitelné use cases. Vede Tomáš Jeroušek, AI Referent ČNB-regulované úvěrové společnosti." data-en="A fixed-price four-week sprint: AI usage audit, tool rollout and access controls, AI Act policy and training, measurable use cases. Run by Tomáš Jeroušek, AI governance owner at a CNB-regulated lender." content="Fixní čtyřtýdenní sprint: audit používání AI, nasazení nástrojů a přístupová pravidla, směrnice a školení podle AI Actu, měřitelné use cases. Vede Tomáš Jeroušek, AI Referent ČNB-regulované úvěrové společnosti.">
+  <meta name="author" content="Tomáš Jeroušek">
+  <meta name="theme-color" content="#F6F7F9">
+  <link rel="canonical" href="https://adamantinestudios.github.io/personal_web/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI ve firmě za 30 dní — Tomáš Jeroušek">
+  <meta property="og:description" content="Řízené zavedení AI do firmy za 30 dní. Audit, nasazení, pravidla a školení podle AI Actu, měřitelné use cases. Ceny rovnou na webu.">
+  <meta property="og:url" content="https://adamantinestudios.github.io/personal_web/">
+  <meta property="og:image" content="https://adamantinestudios.github.io/personal_web/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI ve firmě za 30 dní — Tomáš Jeroušek">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:locale:alternate" content="en_US">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>
+    (function () {
+      var l = null;
+      try {
+        l = new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang");
+      } catch (e) {}
+      if (l === "en" || l === "cs") document.documentElement.lang = l;
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://adamantinestudios.github.io/personal_web/#person",
+        "name": "Tomáš Jeroušek",
+        "jobTitle": "Konzultant zavádění AI",
+        "email": "mailto:t.jerousek@gmail.com",
+        "url": "https://adamantinestudios.github.io/personal_web/",
+        "knowsLanguage": ["cs", "en"],
+        "workLocation": [
+          { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Plzeň", "addressCountry": "CZ" } },
+          { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Praha", "addressCountry": "CZ" } }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "AI ve firmě za 30 dní",
+        "serviceType": "Zavedení a governance AI ve firmě",
+        "description": "Fixní čtyřtýdenní sprint pro české SME: audit používání AI, nasazení nástrojů, směrnice a školení podle AI Actu, měřitelné use cases.",
+        "provider": { "@id": "https://adamantinestudios.github.io/personal_web/#person" },
+        "areaServed": { "@type": "Country", "name": "Česko" },
+        "inLanguage": "cs",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Sprint — AI ve firmě za 30 dní",
+            "priceSpecification": { "@type": "PriceSpecification", "minPrice": 120000, "priceCurrency": "CZK", "valueAddedTaxIncluded": false }
+          },
+          {
+            "@type": "Offer",
+            "name": "AI provoz — měsíční podpora",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "minPrice": 15000, "priceCurrency": "CZK", "unitCode": "MON", "valueAddedTaxIncluded": false }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main"><span lang="cs">Přeskočit na obsah</span><span lang="en">Skip to content</span></a>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="./">Tomáš Jeroušek · AI adoption</a>
+      <nav class="topbar-nav" aria-label="Hlavní navigace / Main navigation">
+        <a href="cv.html"><span lang="cs">Profesní CV</span><span lang="en">Résumé</span></a>
+        <div class="lang-switch" role="group" aria-label="Jazyk / Language">
+          <button type="button" data-lang="cs" aria-pressed="true">CS</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="label"><span lang="cs">České SME · Microsoft 365 · 30 dní</span><span lang="en">Czech SMEs · Microsoft 365 · 30 days</span></span>
+        <h1><span lang="cs">Vaši lidé už AI používají. Otázka je, jestli o&nbsp;tom víte.</span><span lang="en">Your people already use AI. The question is whether you know about it.</span></h1>
+        <p class="hero-sub" lang="cs">Řízené zavedení AI do firmy za 30 dní — od stínového ChatGPT k&nbsp;pravidlům, nastaveným nástrojům a měřitelným úsporám. Vede člověk, který AI governance denně dělá v&nbsp;ČNB-regulované úvěrové společnosti.</p>
+        <p class="hero-sub" lang="en">Governed AI adoption in 30 days — from shadow ChatGPT to policies, configured tools and measured savings. Run by someone who does AI governance every day at a CNB-regulated consumer lender.</p>
+        <div class="hero-cta">
+          <a class="btn" href="[CALENDLY_URL]"><span lang="cs">Rezervovat 30 minut zdarma</span><span lang="en">Book a free 30-minute call</span></a>
+          <span class="hero-note"><span lang="cs">online · bez závazku</span><span lang="en">online · no commitment</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · Problem -->
+    <section class="section" aria-labelledby="h-problem">
+      <div class="container">
+        <div class="section-head">
+          <span class="label"><span lang="cs">01 — Problém</span><span lang="en">01 — The problem</span></span>
+        </div>
+        <h2 id="h-problem"><span lang="cs">Tři věci, které teď pravděpodobně platí i&nbsp;u&nbsp;vás</span><span lang="en">Three things probably true in your company right now</span></h2>
+        <ul class="cards-3">
+          <li class="card">
+            <span class="num">1.1</span>
+            <h3><span lang="cs">Stínová AI</span><span lang="en">Shadow AI</span></h3>
+            <p lang="cs">Zaměstnanci vkládají firemní data do soukromých ChatGPT účtů. Bez pravidel, bez logů, mimo vaši kontrolu.</p>
+            <p lang="en">Employees paste company data into private ChatGPT accounts. No rules, no logs, outside your control.</p>
+          </li>
+          <li class="card">
+            <span class="num">1.2</span>
+            <h3><span lang="cs">Zaplacené licence leží ladem</span><span lang="en">Licences bought, not used</span></h3>
+            <p lang="cs">Copilot nebo jiné licence jsou nakoupené, ale nikdo je nenastavil a nenaučil lidi s nimi pracovat.</p>
+            <p lang="en">Copilot or other licences are paid for, but nobody configured them or taught people how to work with them.</p>
+          </li>
+          <li class="card">
+            <span class="num">1.3</span>
+            <h3><span lang="cs">AI Act čl. 4 — AI gramotnost</span><span lang="en">AI Act Art. 4 — AI literacy</span></h3>
+            <p lang="cs">Od února 2025 máte povinnost zajistit AI gramotnost zaměstnanců. Většina firem ji zatím nijak neřeší.</p>
+            <p lang="en">Since February 2025 you are required to ensure staff AI literacy. Most companies have not addressed it at all.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3 · Sprint -->
+    <section class="section" aria-labelledby="h-sprint">
+      <div class="container">
+        <div class="section-head">
+          <span class="label"><span lang="cs">02 — Sprint / 30 dní</span><span lang="en">02 — The sprint / 30 days</span></span>
+        </div>
+        <h2 id="h-sprint"><span lang="cs">Čtyři týdny, pevný plán</span><span lang="en">Four weeks, a fixed plan</span></h2>
+        <ol class="timeline">
+          <li class="tl-step" style="--i:0">
+            <span class="tl-marker" aria-hidden="true">01</span>
+            <span class="tl-week"><span lang="cs">Týden 1</span><span lang="en">Week 1</span></span>
+            <h3>Audit</h3>
+            <ul class="tl-list">
+              <li lang="cs">Inventura nástrojů, které lidé reálně používají</li>
+              <li lang="en">Inventory of the tools people actually use</li>
+              <li lang="cs">Kontrola licencí a smluvních podmínek</li>
+              <li lang="en">Licence and contract-terms check</li>
+              <li lang="cs">Mapa citlivosti dat podle oddělení</li>
+              <li lang="en">Data-sensitivity map by department</li>
+            </ul>
+          </li>
+          <li class="tl-step" style="--i:1">
+            <span class="tl-marker" aria-hidden="true">02</span>
+            <span class="tl-week"><span lang="cs">Týden 2</span><span lang="en">Week 2</span></span>
+            <h3><span lang="cs">Nasazení</span><span lang="en">Setup</span></h3>
+            <ul class="tl-list">
+              <li lang="cs">Rollout Copilotu / vybraných AI nástrojů</li>
+              <li lang="en">Rollout of Copilot / selected AI tools</li>
+              <li lang="cs">Přístupová pravidla a řízení účtů</li>
+              <li lang="en">Access rules and account management</li>
+              <li lang="cs">Základní ochrana proti úniku dat (DLP)</li>
+              <li lang="en">Baseline data-loss prevention (DLP)</li>
+            </ul>
+          </li>
+          <li class="tl-step" style="--i:2">
+            <span class="tl-marker" aria-hidden="true">03</span>
+            <span class="tl-week"><span lang="cs">Týden 3</span><span lang="en">Week 3</span></span>
+            <h3><span lang="cs">Pravidla a školení</span><span lang="en">Policy &amp; training</span></h3>
+            <ul class="tl-list">
+              <li lang="cs">Směrnice přijatelného užití AI</li>
+              <li lang="en">Acceptable-use policy for AI</li>
+              <li lang="cs">Školení AI gramotnosti pro zaměstnance</li>
+              <li lang="en">AI literacy training for staff</li>
+              <li lang="cs">Plní povinnost dle čl. 4 AI Actu</li>
+              <li lang="en">Satisfies the EU AI Act Article 4 duty</li>
+            </ul>
+          </li>
+          <li class="tl-step" style="--i:3">
+            <span class="tl-marker" aria-hidden="true">04</span>
+            <span class="tl-week"><span lang="cs">Týden 4</span><span lang="en">Week 4</span></span>
+            <h3>Use cases</h3>
+            <ul class="tl-list">
+              <li lang="cs">Práce ve 2–3 odděleních přímo s týmy</li>
+              <li lang="en">Hands-on work with 2–3 departments</li>
+              <li lang="cs">5 konkrétních pracovních postupů</li>
+              <li lang="en">5 concrete workflows</li>
+              <li lang="cs">Změřený ušetřený čas u každého z nich</li>
+              <li lang="en">Measured time saved for each of them</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4 · Why me -->
+    <section class="section" aria-labelledby="h-why">
+      <div class="container">
+        <div class="section-head">
+          <span class="label"><span lang="cs">03 — Kdo to vede</span><span lang="en">03 — Who runs it</span></span>
+        </div>
+        <h2 id="h-why"><span lang="cs">Fakta místo přívlastků</span><span lang="en">Facts, not adjectives</span></h2>
+        <div class="why-grid">
+          <ul class="facts">
+            <li>
+              <span class="k">AI Referent</span>
+              <p class="v" lang="cs">Jmenovaný vlastník AI governance v přední regulované úvěrové společnosti pod dohledem ČNB.</p>
+              <p class="v" lang="en">Designated AI governance owner at a leading regulated lender supervised by the Czech National Bank.</p>
+            </li>
+            <li>
+              <span class="k">DORA → ČNB</span>
+              <p class="v" lang="cs">Regulatorní podání podle DORA jsem osobně připravil a podal na Českou národní banku. Všechna prošla.</p>
+              <p class="v" lang="en">I personally prepared and filed DORA regulatory submissions to the Czech National Bank. All passed.</p>
+            </li>
+            <li>
+              <span class="k"><span lang="cs">IT provoz</span><span lang="en">IT operations</span></span>
+              <p class="v" lang="cs">Denně řídím IT strategii, nákup bezpečnostních řešení a IT service desk. Vlastním IT rozpočet.</p>
+              <p class="v" lang="en">Day to day I run IT strategy, security procurement and an IT service desk. I own the IT budget.</p>
+            </li>
+            <li>
+              <span class="k">Ex-developer</span>
+              <p class="v" lang="cs">Začínal jsem jako vývojář v&nbsp;Javě. Nástroje nastavuji rukama, ne slajdy.</p>
+              <p class="v" lang="en">I started as a Java developer. I configure the tools hands-on, not in slides.</p>
+            </li>
+          </ul>
+          <aside class="stamp" role="note" aria-label="ČNB podání (DORA): prošlo / CNB filings (DORA): passed">
+            <span class="stamp-title"><span lang="cs">ČNB podání (DORA)</span><span lang="en">CNB filings (DORA)</span></span>
+            <span lang="cs">výsledek: prošlo — vše</span><span lang="en">result: passed — all</span><br>
+            v2026-08 · AI Referent
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · Pricing -->
+    <section class="section" aria-labelledby="h-pricing">
+      <div class="container">
+        <div class="section-head">
+          <span class="label"><span lang="cs">04 — Cena</span><span lang="en">04 — Pricing</span></span>
+        </div>
+        <h2 id="h-pricing"><span lang="cs">Ceny rovnou, bez formuláře</span><span lang="en">Prices upfront, no forms</span></h2>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3><span lang="cs">Sprint: AI ve firmě za 30 dní</span><span lang="en">Sprint: AI in your company in 30 days</span></h3>
+            <span class="price"><span lang="cs">od <strong>120 000 Kč</strong> · fixní cena</span><span lang="en">from <strong>CZK 120,000</strong> · fixed price</span></span>
+            <ul>
+              <li lang="cs">Kompletní čtyřtýdenní program výše</li>
+              <li lang="en">The complete four-week programme above</li>
+              <li lang="cs">Směrnice a dokumentace k předání</li>
+              <li lang="en">Policy and hand-over documentation</li>
+              <li lang="cs">Školení AI gramotnosti pro zaměstnance</li>
+              <li lang="en">AI literacy training for staff</li>
+              <li lang="cs">5 nasazených pracovních postupů</li>
+              <li lang="en">5 deployed workflows</li>
+              <li lang="cs">Závěrečná zpráva s čísly pro vedení</li>
+              <li lang="en">A final report with numbers for management</li>
+            </ul>
+            <p class="cta-line"><a href="[CALENDLY_URL]"><span lang="cs">Rezervovat úvodní hovor →</span><span lang="en">Book an intro call →</span></a></p>
+          </article>
+          <article class="price-card">
+            <h3><span lang="cs">AI provoz — návazná podpora</span><span lang="en">AI operations — follow-on retainer</span></h3>
+            <span class="price"><span lang="cs">od <strong>15 000 Kč</strong> / měsíc</span><span lang="en">from <strong>CZK 15,000</strong> / month</span></span>
+            <ul>
+              <li lang="cs">Nové use cases podle potřeb oddělení</li>
+              <li lang="en">New use cases as departments need them</li>
+              <li lang="cs">Sledování změn nástrojů a licencí</li>
+              <li lang="en">Tracking tool and licence changes</li>
+              <li lang="cs">Čtvrtletní doškolení</li>
+              <li lang="en">Quarterly refresher training</li>
+              <li lang="cs">Aktualizace směrnic při změně předpisů</li>
+              <li lang="en">Policy updates when regulation changes</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · FAQ -->
+    <section class="section" aria-labelledby="h-faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">05 — FAQ</span>
+        </div>
+        <h2 id="h-faq"><span lang="cs">Časté otázky</span><span lang="en">Frequently asked</span></h2>
+        <div class="faq">
+          <details>
+            <summary><span class="num">5.1</span><span lang="cs">Nemáme Microsoft 365. Dává to smysl?</span><span lang="en">We don't run Microsoft 365. Does this make sense?</span></summary>
+            <p class="faq-body" lang="cs">Ano. Sprint je stavěný primárně pro Microsoft 365, ale audit a pravidla fungují nad jakýmkoli prostředím. Nastavení nástrojů přizpůsobím tomu, co máte — Google Workspace i on-premise.</p>
+            <p class="faq-body" lang="en">Yes. The sprint is built primarily for Microsoft 365, but the audit and the policy work over any environment. Tool setup adapts to what you have — Google Workspace or on-premise.</p>
+          </details>
+          <details>
+            <summary><span class="num">5.2</span><span lang="cs">Co když už Copilot máme?</span><span lang="en">What if we already have Copilot?</span></summary>
+            <p class="faq-body" lang="cs">Tím líp — přeskočíme nákup a jdeme rovnou na nastavení, pravidla a use cases. Sprint se zkrátí a cena se upraví.</p>
+            <p class="faq-body" lang="en">Even better — we skip procurement and go straight to configuration, policy and use cases. The sprint shortens and the price adjusts.</p>
+          </details>
+          <details>
+            <summary><span class="num">5.3</span><span lang="cs">Řešíte i AI Act compliance?</span><span lang="en">Do you cover AI Act compliance?</span></summary>
+            <p class="faq-body" lang="cs">Sprint pokrývá povinnost AI gramotnosti podle čl. 4 a přijatelné užití AI. Klasifikaci vysoce rizikových systémů a právní stanoviska dělám s vaším právníkem, ne místo něj.</p>
+            <p class="faq-body" lang="en">The sprint covers the Article 4 literacy duty and acceptable use of AI. High-risk system classification and legal opinions I do together with your lawyer, not instead of them.</p>
+          </details>
+          <details>
+            <summary><span class="num">5.4</span><span lang="cs">Jak měříte přínos?</span><span lang="en">How do you measure the benefit?</span></summary>
+            <p class="faq-body" lang="cs">U každého use case změříme čas před a po na konkrétním úkolu konkrétního člověka. Do závěrečné zprávy jdou minuty a koruny, ne dojmy.</p>
+            <p class="faq-body" lang="en">For every use case we time the task before and after with the actual person doing it. The final report shows minutes and crowns, not impressions.</p>
+          </details>
+          <details>
+            <summary><span class="num">5.5</span><span lang="cs">Kdo fyzicky přijde k nám?</span><span lang="en">Who actually shows up?</span></summary>
+            <p class="faq-body" lang="cs">Já. Žádní junioři, žádné subdodávky. Audit a&nbsp;školení probíhají u&nbsp;vás (Plzeň, Praha a okolí), zbytek online.</p>
+            <p class="faq-body" lang="en">I do. No juniors, no subcontracting. The audit and the training happen on site (Pilsen, Prague and nearby), the rest online.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p>Tomáš Jeroušek<br>IČO: [ICO]</p>
+          <p class="trust"><span lang="cs">Žádné cookies, žádná analytika.</span><span lang="en">No cookies, no analytics.</span></p>
+        </div>
+        <ul>
+          <li><a href="mailto:t.jerousek@gmail.com">t.jerousek@gmail.com</a></li>
+          <li><a href="[LINKEDIN_URL]" rel="me">LinkedIn</a></li>
+          <li><a href="cv.html"><span lang="cs">Profesní CV →</span><span lang="en">Résumé →</span></a></li>
+        </ul>
+        <div class="lang-switch" role="group" aria-label="Jazyk / Language">
+          <button type="button" data-lang="cs" aria-pressed="true">CS</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var doc = document.documentElement;
+      var buttons = document.querySelectorAll(".lang-switch button");
+      function apply(lang) {
+        doc.lang = lang;
+        var t = document.querySelector("title");
+        var m = document.querySelector('meta[name="description"]');
+        if (t && t.dataset[lang]) document.title = t.dataset[lang];
+        if (m && m.dataset[lang]) m.setAttribute("content", m.dataset[lang]);
+        buttons.forEach(function (b) {
+          b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
+        });
+      }
+      apply(doc.lang === "en" ? "en" : "cs");
+      buttons.forEach(function (b) {
+        b.addEventListener("click", function () {
+          apply(b.dataset.lang);
+          try { localStorage.setItem("lang", b.dataset.lang); } catch (e) {}
+        });
+      });
+
+      var tl = document.querySelector(".timeline");
+      if (tl && "IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        tl.classList.add("will-animate");
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { tl.classList.add("in"); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(tl);
+      }
+    })();
+  </script>
+</body>
+</html>
