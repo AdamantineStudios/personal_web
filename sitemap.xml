@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://adamantinestudios.github.io/personal_web/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://adamantinestudios.github.io/personal_web/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adamantinestudios.github.io/personal_web/en/"/>
+  </url>
+  <url>
+    <loc>https://adamantinestudios.github.io/personal_web/en/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://adamantinestudios.github.io/personal_web/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adamantinestudios.github.io/personal_web/en/"/>
+  </url>
+  <url>
+    <loc>https://adamantinestudios.github.io/personal_web/cv.html</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://adamantinestudios.github.io/personal_web/cv.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adamantinestudios.github.io/personal_web/en/cv.html"/>
+  </url>
+  <url>
+    <loc>https://adamantinestudios.github.io/personal_web/en/cv.html</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://adamantinestudios.github.io/personal_web/cv.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://adamantinestudios.github.io/personal_web/en/cv.html"/>
+  </url>
+</urlset>
