@@ -122,10 +122,12 @@ a:hover { color: var(--accent); text-underline-offset: 4px; }
 
 /* ---------- ambient background canvas ---------- */
 .mind {
-  position: fixed; inset: 0; z-index: -1;
+  position: fixed; inset: 0; z-index: 0;
   width: 100%; height: 100%;
   pointer-events: none;
 }
+/* content sits above the canvas (iOS Safari hides fixed negative-z layers) */
+main, footer { position: relative; z-index: 1; }
 
 /* ---------- topbar ---------- */
 .topbar {
@@ -297,12 +299,12 @@ a:hover { color: var(--accent); text-underline-offset: 4px; }
 /* connectors between stages, with a traveling signal */
 .stage:not(:last-child)::after {
   content: ""; position: absolute; z-index: 0;
-  top: 34px; right: -40px; width: 40px; height: 2px;
+  top: calc(50% - 1px); right: -40px; width: 40px; height: 2px;
   background: var(--rule);
 }
 .stage:not(:last-child)::before {
   content: ""; position: absolute; z-index: 1;
-  top: 31px; right: -38px; width: 8px; height: 8px;
+  top: calc(50% - 4px); right: -38px; width: 8px; height: 8px;
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 10px rgba(43, 217, 238, 0.8);
@@ -328,43 +330,43 @@ a:hover { color: var(--accent); text-underline-offset: 4px; }
 .flow::after { right: 0; }
 .timeline.will-animate.in .flow::before,
 .timeline.will-animate.in .flow::after {
-  animation: flow-sweep 12s linear infinite;
-  animation-delay: calc(var(--i) * 3s);
+  animation: flow-sweep 8s linear infinite;
+  animation-delay: calc(var(--i) * 2s);
 }
 @keyframes flow-sweep {
   0% { top: -15%; opacity: 0; }
-  1.5% { opacity: 1; }
-  14% { top: 112%; opacity: 1; }
-  15.5% { top: 112%; opacity: 0; }
+  2% { opacity: 1; }
+  16% { top: 112%; opacity: 1; }
+  18% { top: 112%; opacity: 0; }
   100% { top: 112%; opacity: 0; }
 }
 .timeline.will-animate.in .stage {
-  animation: stage-live 12s linear infinite;
-  animation-delay: calc(var(--i) * 3s);
+  animation: stage-live 8s linear infinite;
+  animation-delay: calc(var(--i) * 2s);
 }
 @keyframes stage-live {
   0% { border-color: var(--rule); }
-  3%, 16% { border-color: rgba(43, 217, 238, 0.55); box-shadow: 0 0 24px rgba(43, 217, 238, 0.10); }
-  22%, 100% { border-color: var(--rule); box-shadow: none; }
+  4%, 20% { border-color: rgba(43, 217, 238, 0.55); box-shadow: 0 0 24px rgba(43, 217, 238, 0.10); }
+  27%, 100% { border-color: var(--rule); box-shadow: none; }
 }
 .timeline.will-animate.in .stage-out {
-  animation: out-flash 12s linear infinite;
-  animation-delay: calc(var(--i) * 3s);
+  animation: out-flash 8s linear infinite;
+  animation-delay: calc(var(--i) * 2s);
 }
 @keyframes out-flash {
-  0%, 13% { box-shadow: none; background: rgba(58, 223, 165, 0.07); }
-  16%, 19% { box-shadow: 0 0 20px rgba(58, 223, 165, 0.35); background: rgba(58, 223, 165, 0.16); }
-  25%, 100% { box-shadow: none; background: rgba(58, 223, 165, 0.07); }
+  0%, 15% { box-shadow: none; background: rgba(58, 223, 165, 0.07); }
+  19%, 23% { box-shadow: 0 0 20px rgba(58, 223, 165, 0.35); background: rgba(58, 223, 165, 0.16); }
+  30%, 100% { box-shadow: none; background: rgba(58, 223, 165, 0.07); }
 }
 .timeline.will-animate.in .stage:not(:last-child)::before {
-  animation: pipe-dot 12s linear infinite;
-  animation-delay: calc(var(--i) * 3s + 2.1s);
+  animation: pipe-dot 8s linear infinite;
+  animation-delay: calc(var(--i) * 2s + 1.4s);
 }
 @keyframes pipe-dot {
   0% { transform: translateX(0); opacity: 0; }
-  1% { opacity: 1; }
-  6% { transform: translateX(34px); opacity: 1; }
-  7% { transform: translateX(34px); opacity: 0; }
+  1.5% { opacity: 1; }
+  7% { transform: translateX(34px); opacity: 1; }
+  8.5% { transform: translateX(34px); opacity: 0; }
   100% { transform: translateX(34px); opacity: 0; }
 }
 
@@ -498,11 +500,11 @@ a:hover { color: var(--accent); text-underline-offset: 4px; }
 @media (max-width: 900px) {
   .pipeline { grid-template-columns: 1fr; gap: 36px; }
   .stage:not(:last-child)::after {
-    top: auto; bottom: -36px; right: auto; left: 32px;
+    top: auto; bottom: -36px; right: auto; left: calc(50% - 1px);
     width: 2px; height: 36px;
   }
   .stage:not(:last-child)::before {
-    top: auto; bottom: -33px; right: auto; left: 29px;
+    top: auto; bottom: -33px; right: auto; left: calc(50% - 4px);
   }
   .timeline.will-animate.in .stage:not(:last-child)::before {
     animation-name: pipe-dot-v;
@@ -512,9 +514,9 @@ a:hover { color: var(--accent); text-underline-offset: 4px; }
 }
 @keyframes pipe-dot-v {
   0% { transform: translateY(0); opacity: 0; }
-  1% { opacity: 1; }
-  6% { transform: translateY(30px); opacity: 1; }
-  7% { transform: translateY(30px); opacity: 0; }
+  1.5% { opacity: 1; }
+  7% { transform: translateY(30px); opacity: 1; }
+  8.5% { transform: translateY(30px); opacity: 0; }
   100% { transform: translateY(30px); opacity: 0; }
 }
 @media (max-width: 720px) {
