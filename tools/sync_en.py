@@ -63,6 +63,10 @@ def transform(html, cfg):
     html = html.replace('src="assets/', 'src="../assets/')
     html = html.replace('href="favicon.svg"', 'href="../favicon.svg"')
 
+    # localized image alt texts
+    html = re.sub(r'alt="[^"]*" data-alt-en="([^"]*)"',
+                  lambda m: f'alt="{m.group(1)}" data-alt-en="{m.group(1)}"', html)
+
     # the ?lang=en redirect belongs to the Czech tree only
     html = re.sub(r'  <script>\n    /\* back-compat[^<]*</script>\n', "", html)
 

@@ -54,24 +54,19 @@ on manually once — **Settings → Pages → Build and deployment → Source =
 "GitHub Actions"**. The workflow's token cannot enable Pages by itself.
 The site lives at `https://adamantinestudios.github.io/personal_web/`.
 
-## Go-live checklist
+## Remaining TODOs
 
-Placeholders are intentional and grep-able. Before (or right after) going live:
+All content is real — no placeholders left. Outstanding items (edit root pages,
+then run `python3 tools/sync_en.py`):
 
-```sh
-grep -rn "\[CALENDLY_URL\]\|\[LINKEDIN_URL\]\|\[ICO\]\|\[ROK\]\|\[YEAR\]\|DOPLNIT\|TO FILL" index.html cv.html en/
-```
-
-Replace values in the **root** pages, then run `python3 tools/sync_en.py` so the
-English tree picks them up.
-
-1. `[CALENDLY_URL]` — booking link (hero CTA + pricing card on `index.html`).
-2. `[LINKEDIN_URL]` — LinkedIn profile (footer of `index.html`, header of `cv.html`).
-3. `[ICO]` — IČO in the footer of `index.html`.
-4. `cv.html` — fill the `[ROK]`/`[YEAR]` periods and the `[DOPLNIT — …]` entries
-   (previous employer, projects, education). Everything else on the CV is real.
-5. Custom domain (optional, later): Settings → Pages → Custom domain; then update
-   the `canonical`/OG/JSON-LD absolute URLs in both HTML files to the new domain.
+1. **Calendly**: the CTA currently opens a prefilled e-mail
+   (`mailto:t.jerousek@gmail.com?subject=…`, hero + sprint pricing card on
+   `index.html`). When a booking link exists, swap the two per-language
+   `mailto:` hrefs for it.
+2. **IČO**: the footer identity line omits IČO until the number exists — add it
+   back as `Tomáš Jeroušek · IČO 12345678` in the `index.html` footer.
+3. Custom domain (optional, later): Settings → Pages → Custom domain; then update
+   the `canonical`/OG/JSON-LD/hreflang absolute URLs and `sitemap.xml`.
 
 ## Fonts
 
