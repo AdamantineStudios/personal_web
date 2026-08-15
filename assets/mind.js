@@ -11,8 +11,9 @@
   var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var light = canvas.getAttribute("data-density") === "light";
 
-  var INK = "14,27,44";   /* --ink  #0E1B2C */
-  var RED = "180,35,24";  /* --accent #B42318 */
+  var LINE = "129,160,196";  /* slate-blue hairlines on dark */
+  var CYAN = "43,217,238";   /* --accent: traveling thoughts */
+  var GREEN = "58,223,165";  /* --green: arrival glow */
   var TAU = 6.28318;
 
   var W, H, nodes, edges, pulses, raf, last, clock = 0;
@@ -117,7 +118,7 @@
     ctx.clearRect(0, 0, W, H);
     ctx.lineWidth = 1;
 
-    ctx.strokeStyle = "rgba(" + INK + ",0.14)";
+    ctx.strokeStyle = "rgba(" + LINE + ",0.16)";
     ctx.beginPath();
     edges.forEach(function (e) {
       ctx.moveTo(nodes[e.a].x, nodes[e.a].y);
@@ -128,11 +129,11 @@
     nodes.forEach(function (n) {
       var dx = n.x - pointer.x, dy = n.y - pointer.y;
       var near = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / 170);
-      ctx.fillStyle = "rgba(" + INK + "," + (0.25 + near * 0.3) + ")";
+      ctx.fillStyle = "rgba(" + LINE + "," + (0.35 + near * 0.4) + ")";
       dot(n.x, n.y, n.r + near * 1.2);
       if (n.glow > 0.01) {
-        ctx.fillStyle = "rgba(" + RED + "," + (0.4 * n.glow) + ")";
-        dot(n.x, n.y, n.r + 7 * n.glow);
+        ctx.fillStyle = "rgba(" + GREEN + "," + (0.5 * n.glow) + ")";
+        dot(n.x, n.y, n.r + 8 * n.glow);
       }
     });
 
@@ -140,9 +141,9 @@
       var e = edges[p.e], a = nodes[e.a], b = nodes[e.b];
       var t = p.dir === 1 ? p.t : 1 - p.t;
       var tt = p.dir === 1 ? Math.max(0, p.t - 0.03) : Math.min(1, 1 - p.t + 0.03);
-      ctx.fillStyle = "rgba(" + RED + ",0.25)";
+      ctx.fillStyle = "rgba(" + CYAN + ",0.3)";
       dot(a.x + (b.x - a.x) * tt, a.y + (b.y - a.y) * tt, 1.6);
-      ctx.fillStyle = "rgba(" + RED + ",0.6)";
+      ctx.fillStyle = "rgba(" + CYAN + ",0.85)";
       dot(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t, 2.2);
     });
   }
