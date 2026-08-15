@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adamantinestudios.github.io/personal_web/sitemap.xml

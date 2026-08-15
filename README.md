@@ -1,14 +1,35 @@
 # tomasjerousek — personal web
 
-Two-page static site for Tomáš Jeroušek:
+Static site for Tomáš Jeroušek, in two languages on separate URL trees:
 
-- **`index.html`** — landing page selling **„AI ve firmě za 30 dní"**, a fixed-price
-  four-week AI-adoption sprint for Czech SMEs. Czech first, EN toggle.
-- **`cv.html`** — professional CV, same design system, print-friendly
-  (the print button produces an A4 CV in whichever language is active).
+- **`/` (Czech)** — `index.html` sells **„AI ve firmě za 30 dní"**, a fixed-price
+  four-week AI-adoption sprint for Czech SMEs; `cv.html` is the professional CV
+  (print button produces a 2-page A4 CV).
+- **`/en/` (English)** — `en/index.html` + `en/cv.html`, generated mirrors of the
+  root pages (see "Editing content" below). Cross-linked via `hreflang` and the
+  CS | EN switch; `sitemap.xml` lists all four URLs.
 
-No frameworks, no build step. Plain HTML + one shared stylesheet + a few lines of
-vanilla JS (language toggle, one scroll reveal). No cookies, no analytics, no forms.
+No frameworks, no build step. Plain HTML + one shared stylesheet + a little
+vanilla JS (scroll reveal, ambient background). No cookies, no storage,
+no analytics, no forms.
+
+**The living background** (`assets/mind.js`): a dense "thinking schematic" —
+nodes joined by hairline synapses, red thought-pulses traveling the mesh and
+lighting nodes up, gentle breathing drift, pointer proximity glow, click sparks.
+Purely decorative (`z-index:-1`, `pointer-events:none`); static under
+`prefers-reduced-motion`, hidden in print.
+
+## Editing content
+
+Root pages carry **both** language variants in the DOM (`lang="cs"`/`lang="en"`
+tagged elements); each tree's `<html lang>` decides which one CSS shows.
+**Edit only the root pages**, then regenerate the English mirrors:
+
+```sh
+python3 tools/sync_en.py
+```
+
+Never edit `en/*.html` by hand — the sync overwrites them.
 
 ## Run locally
 
@@ -38,8 +59,11 @@ The site lives at `https://adamantinestudios.github.io/personal_web/`.
 Placeholders are intentional and grep-able. Before (or right after) going live:
 
 ```sh
-grep -rn "\[CALENDLY_URL\]\|\[LINKEDIN_URL\]\|\[ICO\]\|\[ROK\]\|\[YEAR\]\|DOPLNIT\|TO FILL" index.html cv.html
+grep -rn "\[CALENDLY_URL\]\|\[LINKEDIN_URL\]\|\[ICO\]\|\[ROK\]\|\[YEAR\]\|DOPLNIT\|TO FILL" index.html cv.html en/
 ```
+
+Replace values in the **root** pages, then run `python3 tools/sync_en.py` so the
+English tree picks them up.
 
 1. `[CALENDLY_URL]` — booking link (hero CTA + pricing card on `index.html`).
 2. `[LINKEDIN_URL]` — LinkedIn profile (footer of `index.html`, header of `cv.html`).

@@ -141,17 +141,18 @@ a:hover { color: var(--accent); text-underline-offset: 4px; }
 .topbar-nav { display: flex; align-items: center; gap: 20px; }
 .topbar-nav a { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.05em; text-transform: uppercase; }
 
-/* language switch */
+/* language switch — plain links between the cs (/) and en (/en/) trees */
 .lang-switch { display: inline-flex; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
-.lang-switch button {
-  appearance: none; border: 0; margin: 0; cursor: pointer;
+.lang-switch a {
+  display: block;
   background: var(--card); color: var(--muted);
   font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.07em;
   padding: 6px 12px; line-height: 1.4;
+  text-decoration: none; transition: color 120ms ease;
 }
-.lang-switch button + button { border-left: 1px solid var(--rule); }
-.lang-switch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-.lang-switch button:hover:not([aria-pressed="true"]) { color: var(--ink); }
+.lang-switch a + a { border-left: 1px solid var(--rule); }
+.lang-switch a[aria-current="true"] { background: var(--ink); color: var(--paper); }
+.lang-switch a:hover:not([aria-current="true"]) { color: var(--ink); }
 
 /* ---------- sections ---------- */
 .section { padding-block: clamp(56px, 9vw, 92px); }
