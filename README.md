@@ -27,8 +27,11 @@ only breaking in production.
 Merges to `main` deploy automatically via `.github/workflows/deploy.yml`
 (GitHub Pages, no build).
 
-**One-time setup:** repo **Settings → Pages → Build and deployment → Source =
-"GitHub Actions"**. After that the site is live at
+The workflow enables Pages by itself on the first successful run
+(`configure-pages` with `enablement: true`) — note the repository must be
+**public** for Pages on a free GitHub plan. If a deploy ever fails at the
+configure step, set it manually once: **Settings → Pages → Build and
+deployment → Source = "GitHub Actions"**. The site lives at
 `https://adamantinestudios.github.io/personal_web/`.
 
 ## Go-live checklist
@@ -44,8 +47,7 @@ grep -rn "\[CALENDLY_URL\]\|\[LINKEDIN_URL\]\|\[ICO\]\|\[ROK\]\|\[YEAR\]\|DOPLNI
 3. `[ICO]` — IČO in the footer of `index.html`.
 4. `cv.html` — fill the `[ROK]`/`[YEAR]` periods and the `[DOPLNIT — …]` entries
    (previous employer, projects, education). Everything else on the CV is real.
-5. Flip Pages Source to "GitHub Actions" (see above) if not done yet.
-6. Custom domain (optional, later): Settings → Pages → Custom domain; then update
+5. Custom domain (optional, later): Settings → Pages → Custom domain; then update
    the `canonical`/OG/JSON-LD absolute URLs in both HTML files to the new domain.
 
 ## Fonts
