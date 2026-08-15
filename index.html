@@ -72,6 +72,7 @@
   </script>
 </head>
 <body>
+  <canvas id="mind" class="mind" aria-hidden="true"></canvas>
   <a class="skip-link" href="#main"><span lang="cs">Přeskočit na obsah</span><span lang="en">Skip to content</span></a>
 
   <header class="topbar">
@@ -244,7 +245,7 @@
         </div>
         <h2 id="h-pricing"><span lang="cs">Ceny rovnou, bez formuláře</span><span lang="en">Prices upfront, no forms</span></h2>
         <div class="pricing-grid">
-          <article class="price-card">
+          <article class="price-card price-card--featured">
             <h3><span lang="cs">Sprint: AI ve firmě za 30 dní</span><span lang="en">Sprint: AI in your company in 30 days</span></h3>
             <span class="price"><span lang="cs">od <strong>120 000 Kč</strong> · fixní cena</span><span lang="en">from <strong>CZK 120,000</strong> · fixed price</span></span>
             <ul>
@@ -372,5 +373,6 @@
       }
     })();
   </script>
+  <script src="assets/mind.js"></script>
 </body>
 </html>
