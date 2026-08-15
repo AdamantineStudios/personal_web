@@ -27,12 +27,11 @@ only breaking in production.
 Merges to `main` deploy automatically via `.github/workflows/deploy.yml`
 (GitHub Pages, no build).
 
-The workflow enables Pages by itself on the first successful run
-(`configure-pages` with `enablement: true`) — note the repository must be
-**public** for Pages on a free GitHub plan. If a deploy ever fails at the
-configure step, set it manually once: **Settings → Pages → Build and
-deployment → Source = "GitHub Actions"**. The site lives at
-`https://adamantinestudios.github.io/personal_web/`.
+One-time setup (already done for this repo): the repository must be **public**
+(GitHub Pages on private repos needs a paid plan), and Pages must be switched
+on manually once — **Settings → Pages → Build and deployment → Source =
+"GitHub Actions"**. The workflow's token cannot enable Pages by itself.
+The site lives at `https://adamantinestudios.github.io/personal_web/`.
 
 ## Go-live checklist
 
